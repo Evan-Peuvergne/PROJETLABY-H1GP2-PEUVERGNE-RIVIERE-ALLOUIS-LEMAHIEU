@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dark Maze</title>
+
+	<link rel="stylesheet" href="styles/reset.css">
+	<link rel="stylesheet" href="styles/fonts.css">
+	<link rel="stylesheet" href="styles/game.css">
+	<link rel="stylesheet" href="styles/main.css">
+
+</head>
+<body>
+	
+	<a href="#" class="close"><img src="assets/img/Landing/x.png" alt=""></a>
+	<div id="life-bar">
+		<div class="life"></div>
+	</div>
+	<audio id="audio-player" loop autoplay>
+		<source src="assets/musics/music.mp3" type="audio/mp3">
+	</audio>
+
+	<div id="accueil">
+		<h1>Dark Maze</h1>
+		<nav>
+			<ul>
+				<li><a id="btn-play" href="#play">Jouer</a></li>
+				<li><a id="btn-regles" href="#rules">Règles</a></li>
+				<li><a id="btn-equipe" href="#team">Equipe</a></li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="section" id="choix-mode-jeu">
+		<div class="step" id="choix-mode-jeu-first-step">
+			<div class="container">
+				<h2>Choix du mode de jeu</h2>
+				<div class="content">
+					<p>Choisissez votre mode de jeu</p>
+					<p>Mode Solo : Penetrez seul dans le labyrinthe, essayez de trouver la sortie tout en évitant les monstres et en ne mourrant pas de faim. Enchainez les niveau et peut être réussirez vous à vous sortir pour de bon de ce bien mauvais pas !</p>
+					<p>Mode multijoueur (BETA) : Affrontez vos amis en ligne dans un combat sans merci au coeur d'un labyrinthe oppressant.</p>
+				</div>
+				<nav>
+					<ul>
+						<li><a id="btn-solo" href="#play">Solo</a></li>
+						<li><a id="btn-multi" href="#rules">Multijoueur</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="step " id="step-game">
+			<div id="game" style="display:block;">
+				<div id="map">
+					<div id="content"></div>
+					<div id="characters"></div>
+				</div>
+				<div id="joueur"></div>
+			</div>
+			<div id="infos">
+				<h2>Commencer</h2>
+				<nav>
+					<ul>
+						<li><a id="launch-level" href="#play">Lancer</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div id="rooms">
+				<h2>Création d'une partie</h2>
+				<nav>
+					<ul>
+						<li><a id="create-party" href="#">Créer</a></li>
+					</ul>
+				</nav>
+				<div class="container">
+					<ul>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section" id="regles">
+		<div class="step" id="main-rules">
+			<div class="container">
+				<h2>Main rules</h2>
+				<div class="content">
+					<img src="assets/img/Persos/gun.png" alt="">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, dolore, hic, maxime velit rem nesciunt deserunt voluptatibus vitae numquam adipisci labore suscipit laudantium cumque recusandae assumenda blanditiis tempore voluptatem necessitatibus.</p>
+				</div>
+				<nav>
+					<ul>
+						<li><a class="next-step" href="#">Suivant</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<div class="step" id="bonus-rules">
+			<div class="container">
+				<h2>Bonus rules</h2>
+				<div class="content">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, dolore, hic, maxime velit rem nesciunt deserunt voluptatibus vitae numquam adipisci labore suscipit laudantium cumque recusandae assumenda blanditiis tempore voluptatem necessitatibus.</p>
+				</div>
+				<nav>
+					<ul>
+						<li><a class="previous-step" href="#">Precedent</a></li>
+						<li><a class="next-step" href="#">Suivant</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+
+	<div class="section" id="team">
+		<div class="container">
+			<h2>Equipe</h2>
+			<ul class="content">
+				<li>
+					<img src="assets/img/Landing/evan.jpg" alt="">
+					<h3>Evan Peuvergne</h3>
+					<p>Chef de projet, je me suis principalement employé à organiser et coordonner le code au sein d'une strucure objet propice à la maintenabilité. Je me suis également occupé de l'intégration du site.</p>
+				</li>
+				<li>
+					<img src="assets/img/Landing/lucas.jpg" alt="">
+					<h3>Lucas Lemahieu</h3>
+					<p>Responsable développement, je me suis en priorité employé à concevoir et mettre en œuvre les principaux algorithmes, puis à les optimiser pour obtenir un jeu plus optimisé et moins lourd.</p>
+				</li>
+				<li>
+					<img src="assets/img/Landing/arnaud.jpg" alt="">
+					<h3>Arnaud Allouis</h3>
+					<p>Spécialiste NodeJS et Sails, Arnaud a pris en charge toute la partie serveur relative au multijoeur real time (sockets) et de l'api, ainsi que de la mise en production.</p>
+				</li>
+				<li>
+					<img src="assets/img/Landing/magali.jpg" alt="">
+					<h3>Magali Rivière</h3>
+					<p>Design du jeu, dessiner les personnages, les armes et les monstres avec un style « steampunk », en prenant en compte les paramètres et contraintes du jeu.</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<video id="intro-video" class="section" style="z-index:1000000000000000000000000000000;">
+		<source src="assets/img/intro.mp4" type="video/mp4" />
+		Votre navigateur ne vous permet pas de visionner cette vidéo
+	</video>
+
+<script src="librairies/jquery.js"></script>
+<script src="librairies/preload.js"></script>
+<script src="http://localhost:1337/js/dependencies/sails.io.js"></script>
+<script src="objects/config.js"></script>
+<script src="objects/Loader.js"></script>
+<script src="objects/Labyrinthe.js"></script>
+<script src="objects/Perso.js"></script>
+<script src="objects/PersoHero.js"></script>
+<script src="objects/PersoProta.js"></script>
+<script src="objects/PersoMechant.js"></script>
+<script>
+	
+	$(document).ready(function (){
+
+		var game = {
+			currentLab: null,
+			pseudo: null,
+			intro: false,
+			solo: {
+				level : 1
+			},
+			multiplayer: {
+
+			}
+		};
+
+		$('.section').each(function (i, value){
+			var steps = $(this).find('.step').length;
+			if(steps == 0){steps = 1;}
+			$(this).css({
+				width: $(window).width()*steps+10
+			});
+		});
+
+		$('.step').css({
+			width: $(window).width()
+		});
+
+		$('#btn-play').click(function (e){
+			e.preventDefault();
+			$('#accueil').hide(0, function (){
+				$('#choix-mode-jeu').addClass('active');
+				$('.close').addClass('active');
+			});
+		});
+
+		$('#btn-regles').click(function (e){
+			e.preventDefault();
+			$('#accueil').hide(0, function (){
+				$('#regles').addClass('active');
+				$('.close').addClass('active');
+			});
+		});
+
+		$('#btn-equipe').click(function (e){
+			e.preventDefault();
+			$('#accueil').hide(0, function (){
+				$('#team').addClass('active');
+				$('.close').addClass('active');
+			});
+		});
+
+		$('.next-step').click(function (e){
+			e.preventDefault();
+			var nextStep = $(this).index() + 1;
+			$('.section.active').animate({
+				left: - $(window).width()*nextStep
+			});
+		});
+
+		$('.previous-step').click(function (e){
+			e.preventDefault();
+			var previousStep = $(this).index();
+			$('.section.active').animate({
+				left: - $(window).width()*previousStep
+			});
+		});
+
+
+		$('#btn-solo, #btn-multi').click(function (e){
+			e.preventDefault();
+			$('.back').addClass('active');
+			if($(this).attr('id') == "btn-multi"){
+				$('#infos').hide();
+				$('#rooms').show();
+			}else{
+				console.log(localStorage.getItem('lastGame').online);
+			}
+			$('#choix-mode-jeu').animate({
+				left: -$(window).width()
+			});
+		});
+
+		$(document).on("click", "#launch-level", function (e){
+			e.preventDefault();
+			if(game.solo.level == 1 && !game.intro){
+				$('#intro-video').addClass('active').get(0).play();
+				$('#audio-player').get(0).pause();
+			}else{
+				$('#infos').fadeOut(500, function (){
+					$('#life-bar').fadeIn(500);
+					game.currentLab = new Labyrinthe(150, 20, game.solo.level, false, function (result){
+						if(result){
+							game.solo.level++;
+							$('#infos').find('h2').text("Victoire");
+						}else{
+							game.solo.level = 1;
+							$('#infos').find('h2').text("Défaite");
+						}
+						game.currentLab.clear();
+						game.currentLab = null;
+						$('#infos').find("a").text("Niveau "+game.solo.level);
+						$('#infos').fadeIn(500);
+					});
+					game.currentLab.construct();
+					game.currentLab.generateHeros();
+					game.currentLab.launch();
+				});
+			}
+		});
+
+		var video = document.getElementsByTagName('video')[0];
+
+		video.onended = function(e) {
+		  $('#intro-video').removeClass('active');
+		  game.intro = true;
+		  $('#audio-player').get(0).play();
+		}
+
+		$('#create-party').click(function (e){
+			var name = prompt("Veuillez choisir un nom pour la room");
+			sessionStorage.setItem("room",name);
+			socket.emit("new_room",{'room':name});
+			$('#rooms .container ul').append('<li><span>'+name+'</span><a href="#'+name+'" class="connect">Connexion</a><a href="#'+name+'" class="launch">Demarrer</a></li>');
+			e.preventDefault();
+		});
+
+		$(document).on("click","#rooms li .connect",function(e){
+			e.preventDefault();
+			game.pseudo = prompt("Choisissez un pseudo");
+			var name = "Test";
+			socket.emit("join_room",{'room':name});
+		});
+
+		$(document).on("click", "#rooms li .launch", function (e){
+			e.preventDefault();
+			var g = {};
+			if(game.pseudo == null){
+				game.pseudo = prompt("Choisissez un pseudo");
+			}
+			game.currentLab = new Labyrinthe(20, 5, 1, {room: $(this).attr("href").substring(1)}, function (result){
+				alert(result);
+			});
+			$('#rooms').hide();
+			$('#game').show();
+			game.currentLab.construct();
+			socket.post("/party/launch", {
+				'mur':game.currentLab,
+				'room': "Test",
+			});
+			game.currentLab.generateHeros(game.pseudo);
+			game.currentLab.launch();
+		});
+
+		socket.on("room_created",function(data){
+			$('#rooms .container ul').append('<li><span>'+data.room+'</span><a href="#'+data.room+'" class="connect">Connexion</a><a href="#'+data.room+'" class="launch">Demarrer</a></li>');
+		});
+
+		socket.on("start_game",function (data){
+			game.currentLab = new Labyrinthe(20, 5, 1, {room: data.room}, function (result){
+				alert(result);
+			});
+			$('#rooms').hide();
+			$('#game').show();
+			game.currentLab.murs = data.murs;
+			game.currentLab.sortie = data.sortie;
+			game.currentLab.html = data.html;
+			game.currentLab.persosPosition = data.persosPosition;
+			game.currentLab.protagonistes = data.protagonistes;
+			$('#content').append($(data.html));
+			game.currentLab.generateHeros(name);
+			game.currentLab.launch();
+		});
+
+		socket.on("send_data",function(data){
+			if(data.type == "initPosition"){
+				game.currentLab.addAdversaire(data.id, data.case);
+			}else if(data.type == "move"){
+				var args = data.params;
+				args = args.split("/");
+				game.currentLab.moveAdversaire(args[1], args[0]);
+			}
+		});
+
+		$('a.close').click(function (e){
+			e.preventDefault();
+			if(game.currentLab != null){
+				game.currentLab.clear();
+			}
+			$(this).removeClass('active');
+			$('.section.active').removeClass('active');
+			$('#accueil').fadeIn(500);
+			$('#life-bar').fadeOut(500);
+		});
+
+	});
+
+</script>
+
+</body>
+</html>

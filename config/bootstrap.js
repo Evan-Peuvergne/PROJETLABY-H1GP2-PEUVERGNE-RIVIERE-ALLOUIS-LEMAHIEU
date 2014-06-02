@@ -1,0 +1,28 @@
+/**
+ * Bootstrap
+ *
+ * An asynchronous bootstrap function that runs before your Sails app gets lifted.
+ * This gives you an opportunity to set up your data model, run jobs, or perform some special logic.
+ *
+ * For more information on bootstrapping your app, check out:
+ * http://sailsjs.org/#documentation
+ */
+
+module.exports.bootstrap = function(cb) {
+
+	var sites_info = {
+		title: "Default title",
+		description: "Une petite description",
+        id:"1"
+	};
+	Sites.count(function(err,data){
+		if (data < 1) {
+			Sites.create(sites_info,function(err,data){
+				if (err) console.log(err);
+			});
+		}
+	});
+	// It's very important to trigger this callack method when you are finished
+	// with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
+	cb();
+};
